@@ -1,13 +1,16 @@
 [{
         "title": "My First Post",
-        "body": "This is my first blog post."
+        "body": "This is my first blog post.",
+        "author": "userOne._id"
     },
     {
         "title": "My Second Post",
-        "body": "This is my second blog post."
+        "body": "This is my second blog post.",
+        "author": "userTwo._id"
     },
     {
         "title": "My Third Post",
-        "body": "This is my third blog post."
+        "body": "This is my third blog post.",
+        "author": "userThree_id"
     }
 ]
