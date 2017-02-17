@@ -1,7 +1,7 @@
 const User = require('../lib/models/user');
 const assert = require('chai').assert;
 
-describe.only('user model', () => {
+describe('user model', () => {
     it('sets hash from password and correctly compares', () => {
         const signupData = {username: 'user1', password: 'pwd'};
         const user = new User(signupData);
