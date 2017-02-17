@@ -15,6 +15,12 @@ chai.use(chaiHttp);
 
 describe('song API', () => {
     const request = chai.request(app);
+    const testSong = {
+        title: 'Despacito',
+        artist: 'Luis Fonsi',
+        featuring: 'Daddy Yankee',
+        rating: 5
+    };
     const exportData = collection => {
         return `mongoimport --file=./test/api/${collection}.json -d auth-lab-test -c ${collection} --jsonArray`;
     };
@@ -41,9 +47,17 @@ describe('song API', () => {
     it('GETs one song by :id', () => {
         return request.get(`/songs/${bailandoId}`)
         .then(res => {
-            console.log('rezzbod is..', res.body);
             assert.equal(res.body.artist, 'Enrique Iglesias');
             assert.equal(res.body.title, 'Bailando');
+        });
+    });
+
+    it('POSTs a new song', () => {
+        return request.post('/songs')
+        .send(testSong)
+        .then(res => {
+            assert.equal(res.body.title, testSong.title);
+            assert.equal(res.body.artist, testSong.artist);
         });
     });
 
