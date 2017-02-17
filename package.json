@@ -1,0 +1,37 @@
+{
+  "name": "adding-auth",
+  "version": "1.0.0",
+  "description": "A REST API data server that provides CRUD methods for protected auth routes and a user model that hashes passwords. The middleware function protects the resource routes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krogseng/adding-auth.git"
+  },
+  "keywords": [
+    "authentication",
+    "routes",
+    "crud",
+    "hash"
+  ],
+  "author": "Lynn Krogseng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krogseng/adding-auth/issues"
+  },
+  "homepage": "https://github.com/krogseng/adding-auth#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.15.0",
+    "promise": "^7.1.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "jsonwebtoken": "^7.3.0",
+    "morgan": "^1.8.1"
+  }
+}
