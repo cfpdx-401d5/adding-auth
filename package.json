@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.16.1",
     "jsonwebtoken-promisified": "^1.0.3"
   }
 }
