@@ -1,7 +1,7 @@
 const Song = require('../lib/models/song');
 const testInvalid = require('./test-invalid')(Song);
 
-describe.only('Song model', () => {
+describe('Song model', () => {
 
     it('Requires a title', () => {
         // artist and title are required
