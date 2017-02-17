@@ -22,8 +22,11 @@
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "eslint": "^3.15.0",
-    "jsonwebtoken-promisified": "^1.0.3",
     "mocha": "^3.2.0",
     "mongoose": "^4.8.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken-promisified": "^1.0.3"
   }
 }
