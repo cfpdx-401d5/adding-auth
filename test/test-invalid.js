@@ -6,5 +6,4 @@ module.exports = function(Model) {
             () => { throw new Error('validation should not have succeeded'); },
             () => { /* err was expected, nothing to do */ }
         );
-
 };

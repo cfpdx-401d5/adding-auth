@@ -26,6 +26,7 @@ describe('user model and creation', () => {
             username: 'usernamed',
             password: 'passworded'
         };
+
         const user = new User(data);
 
         assert.isUndefined(user.password);
