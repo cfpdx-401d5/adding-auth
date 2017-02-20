@@ -43,74 +43,78 @@ describe('auth', () => {
             badRequest('/auth/signup', { name: 'myName', password: 'test' }, 'username, password, and email must be supplied');
         });
 
-        let token = '';
-
         it('signup', () => {
             request
                 .post('/auth/signup')
                 .send(user)
-                .then(
-                    res => {
-                        assert.ok(token = res.body.token);
-                    });
+                .then(res => {
+                    assert.ok(res.body.token);
+                });
         });
 
-        //     it('unique username', () => {
-        //         badRequest('/auth/signup', user, 'username already exists');
-        //     });
+        it('unique username', () => {
+            badRequest('/auth/signup', user, 'username already exists');
+        });
 
-        //     it('signin requires username', () => {
-        //         badRequest('/auth/signin', { password: 'test' }, 'username and password must be supplied');
-        //     });
+        it('signin requires username', () => {
+            badRequest('/auth/signin', { password: 'test' }, 'username, password, and email must be supplied');
+        });
 
-        //     it('signin requires password', () => {
-        //         badRequest('/auth/signin', { name: 'myName' }, 'username and password must be supplied');
-        //     });
+        it('signin requires password', () => {
+            badRequest('/auth/signin', { name: 'myName' }, 'username, password, and email must be supplied');
+        });
 
-        //     it('signin with wrong user', () => {
-        //         badRequest('/auth/signin', { name: 'yourName', password: user.password }, 'invalid username or password');
-        //     });
+        it('signin with wrong user', () => {
+            badRequest('/auth/signin', { name: 'yourName', password: 'testYour' }, 'username, password, and email must be supplied');
+        });
 
-        //     it('signin with wrong password', () => {
-        //         badRequest('/auth/signin', ({ name: user.name, password: 'bad' }), 'invalid username or password');
-        //     });
+        it('signin with wrong password', () => {
+            badRequest('/auth/signin', ({ name: 'hisName', password: 'bad' }), 'username, password, and email must be supplied');
+        });
 
-        //     it('signin', () => {
-        //         request
-        //             .post('/auth/signin')
-        //             .send(user)
-        //             .then(res => assert.ok(res.body.token));
-        //     });
+        let token = '';
 
-        //     it('token is invalid', () => {
-        //         request
-        //             .get('/auth/verify')
-        //             .set('Authorization', 'bad token')
-        //             .then(
-        //                 () => { throw new Error('success response not expected'); },
-        //                 res => { assert.equal(res.status, 401); }
-        //             );
-        //     });
+        it('signin', () => {
+            request
+                .post('/auth/signin')
+                .send(user)
+                .then(res => {
+                    token = res.body.token;
+                    assert.ok(res.body.token);
+                });
+        });
 
-        //     it('token is valid', () => {
-        //         request
-        //             .get('/auth/verify')
-        //             .set('Authorization', token)
-        //             .then(res => assert.ok(res.body));
-        //     });
-        // });
+        it('token is invalid', () => {
+            request
+                .get('/auth/verify')
+                .set('Authorization', 'bad token')
+                .then(
+                    () => { throw new Error('success response not expected'); },
+                    res => {
+                        assert.equal(res.status, 401);
+                    }
+                );
+        });
 
-        // describe('unautorized', () => {
-        //     it('401 with no token', () => {
-        //         return request
-        //             .get('/posts')
-        //             .then(
-        //                 () => { throw new Error('status should not be 200'); },
-        //                 res => {
-        //                     assert.equal(res.status, 401);
-        //                     assert.equal(res.response.body.error, 'Unauthorized');
-        //                 }
-        //             );
-        //     });
+        it('token is valid', () => {
+            request
+                .get('/auth/verify')
+                .set('Authorization', token)
+                .then(res => assert.ok(res.body));
+        });
+    });
+
+    describe('unautorized', () => {
+        it('401 with no token', () => {
+            return request
+                .get('/posts')
+                .then(
+                    () => { throw new Error('status should not be 200'); },
+                    res => {
+                        assert.equal(res.status, 401);
+                        assert.equal(res.response.body.error, 'Unauthorized');
+                    }
+                );
+        });
     });
 });

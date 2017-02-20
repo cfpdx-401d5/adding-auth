@@ -12,14 +12,20 @@ describe('user model', () => {
         return testInvalid({ name: 'myName' });
     });
 
+    it('is valid with username and password', () => {
+        return new User({ name: 'myName', password: 'test', email: 'myName@email.com' }).validate();
+    });
+
     it('sets hash from password and correctly compares', () => {
         const data = { name: 'myName', email: 'myEmail@email.com', password: 'test' };
-        const user = new User(data);
+        const testUser = new User(data);
 
-        assert.isUndefined(user.password);
-        assert.notEqual(user.hash, data.password);
+        console.log('user: ', testUser);
 
-        assert.isTrue(user.comparePassword('test'));
-        assert.isFalse(user.comparePassword('not the password'));
+        assert.notDeepProperty(testUser, 'testUser.password');
+        assert.notEqual(testUser.hash, data.password);
+
+        assert.isTrue(testUser.comparePassword('test'));
+        assert.isFalse(testUser.comparePassword('not the password'));
     });
 });
