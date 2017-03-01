@@ -20,8 +20,6 @@ describe('user model', () => {
         const data = { name: 'myName', email: 'myEmail@email.com', password: 'test' };
         const testUser = new User(data);
 
-        console.log('user: ', testUser);
-
         assert.notDeepProperty(testUser, 'testUser.password');
         assert.notEqual(testUser.hash, data.password);
 
