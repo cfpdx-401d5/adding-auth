@@ -1,0 +1,20 @@
+[{
+    "name": "schnoodle",
+    "group": "hybrid dog"   
+},
+{
+    "name": "labrador retriever",
+    "group": "sporting dog"
+},
+{
+    "name": "poodle",
+    "group": "companion dog"
+},
+{
+    "name": "standard schnauzer",
+    "group": "working dog"
+},
+{
+    "name": "labradoodle",
+    "group": "hybrid dog"
+}]

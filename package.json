@@ -1,0 +1,33 @@
+{
+  "name": "adding_authentication",
+  "version": "1.0.0",
+  "description": "This is an HTTP REST API that uses authentication for username and password.",
+  "main": "node server",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clairefollett/adding-auth.git"
+  },
+  "author": "Claire Follett <chlaw101@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Clairefollett/adding-auth/issues"
+  },
+  "homepage": "https://github.com/Clairefollett/adding-auth#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.15.0",
+    "mocha": "^3.2.0",
+    "mongoose": "^4.8.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.16.1",
+    "jsonwebtoken-promisified": "^1.0.3"
+  }
+}
