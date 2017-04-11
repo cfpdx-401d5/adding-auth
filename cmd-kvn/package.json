@@ -1,0 +1,37 @@
+{
+  "name": "adding-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "mocha --recursive",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmd-kvn/adding-auth.git"
+  },
+  "author": "Kevin Wong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmd-kvn/adding-auth/issues"
+  },
+  "homepage": "https://github.com/cmd-kvn/adding-auth#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.15.0",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "jsonwebtoken-promisified": "^1.0.3",
+    "mongoose": "^4.8.3",
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0"
+  }
+}
