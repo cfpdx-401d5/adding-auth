@@ -1,0 +1,33 @@
+{
+  "name": "adding-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdcaulley/adding-auth.git"
+  },
+  "author": "sdcaulley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdcaulley/adding-auth/issues"
+  },
+  "homepage": "https://github.com/sdcaulley/adding-auth#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.15.0",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "jsonwebtoken-promisified": "^1.0.3",
+    "mongoose": "^4.8.2",
+    "morgan": "^1.8.1"
+  }
+}
